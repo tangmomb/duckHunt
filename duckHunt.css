@@ -11,23 +11,13 @@ body{
 	left: 600px;
 }
 
-#bullet{
+#bullets{
 	position : absolute;
 	top: 40px;
 	left: 30px;
 }
 
-#bullet2{
-	position : absolute;
-	top: 40px;
-	left: 60px;
-}
 
-#bullet3{
-	position : absolute;
-	top: 40px;
-	left: 90px;
-}
 
 #score{
 	position : absolute;
