@@ -11,6 +11,12 @@ body{
 	left: 600px;
 }
 
+#bird{
+	position : absolute;
+	top: 80px;
+	left: 600px;
+}
+
 #bullets{
 	position : absolute;
 	top: 40px;
