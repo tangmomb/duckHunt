@@ -16,14 +16,36 @@
 </div>
 <div id="score">0000</div>
 <script>
-/*$(window).load(function(){
+// affichage aléatoire de l'arbre
+$(window).on("load",function(){
 	var largeur_fenetre = $(window).width();
 	var largeur_tree = $("#tree").width();
 	console.log(largeur_tree);
 	var a = Math.random() * (largeur_fenetre - largeur_tree);
 
 	$("#tree").css("left",a + "px");
-});*/
+});
+
+// depart de l'oiseau
+var hauteur_fenetre = $(window).height();
+var largeur_bird = $("#bird").width();
+var hauteur_depart = Math.random()*(hauteur_fenetre - )
+
+
+$("#bird").css("top",hauteur_depart + "px");
+
+// vitesse et trajectoire de l'oiseau
+var largeur_fenetre = $(window).width();
+var deplacement_hauteur = Math.random()*1000
+var deplacement_vitesse = Math.random()*5000
+
+$("#bird").animate({
+left: largeur_fenetre,
+top: deplacement_hauteur,
+},deplacement_vitesse);
+
+
+
 
 </script>
 </body>
