@@ -15,6 +15,7 @@
 	<img  src="img/bullet.png"/>
 </div>
 <div id="score">score : 0</div>
+<img id="gameover" src="img/gameover.png"/>
 <script>
 var largeur_fenetre = $(window).width();
 var hauteur_fenetre = $(window).height();
@@ -59,6 +60,9 @@ $(window).on("load",function(){
 	
 	$("body").on("mousedown",function(){
 		$("#bullets img:last-child").remove();
+		if ($("#bullets img").length === 0){
+			$("#gameover").css("display","block");
+		}
 	});
 	
 	// changement d'image et arrêt au clique	
@@ -82,7 +86,8 @@ $(window).on("load",function(){
 		$("#score").html("score : " + score);
 		
 		}
-	});
+	} );
+	
 	
 });
 

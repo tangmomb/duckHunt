@@ -1,3 +1,8 @@
+*{
+	user-select: none;
+	-webkit-user-select: none;
+}
+
 body{
 	background : url(img/back.png);
 	background-repeat: repeat-x;
@@ -5,6 +10,14 @@ body{
     background-attachment: fixed;
 	overflow : hidden;
 	
+}
+
+#gameover{
+	width : 70%;
+	margin : 0 auto;
+	display : none;
+	position : relative;
+	top : 50px;
 }
 
 #tree{
