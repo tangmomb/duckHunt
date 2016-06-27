@@ -20,6 +20,7 @@
 var largeur_fenetre = $(window).width();
 var hauteur_fenetre = $(window).height();
 var score = 0;
+// pour les tirs ratés, body doit faire taille de la fenetre
 $("body").css("height", hauteur_fenetre);
 
 function start_bird(){
@@ -56,6 +57,7 @@ $(window).on("load",function(){
 	
 	$("#tree").css("left",a + "px");
 	
+	//animation oiseau
 	start_bird();
 	
 	$("body").on("mousedown",function(){
