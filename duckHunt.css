@@ -4,6 +4,7 @@ body{
     background-position: bottom;
     background-attachment: fixed;
 	overflow : hidden;
+	
 }
 
 #tree{
@@ -24,7 +25,13 @@ body{
 	left: 30px;
 }
 
+#bullets img {
+	padding : 3px;
+}
 
+#bullets img:last-child{
+	background-color : grey;
+}
 
 #score{
 	position : absolute;

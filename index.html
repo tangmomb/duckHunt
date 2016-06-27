@@ -14,14 +14,19 @@
 	<img  src="img/bullet.png"/>
 	<img  src="img/bullet.png"/>
 </div>
-<div id="score">0000</div>
+<div id="score">score : 0</div>
 <script>
 var largeur_fenetre = $(window).width();
 var hauteur_fenetre = $(window).height();
+var score = 0;
+$("body").css("height", hauteur_fenetre);
 
 function start_bird(){
 	
 	// depart de l'oiseau
+	
+	$("#bird").attr("src","img/bird.gif");
+	$("#bird").css("left","-60px");
 	
 	var hauteur_depart = Math.random() * (hauteur_fenetre - $("#bird").height());
 	$("#bird").css("top",hauteur_depart + "px");
@@ -34,7 +39,8 @@ function start_bird(){
 			left: largeur_fenetre,
 			top: hauteur_arrivee
 		},
-		3000 + Math.random() * 4000
+		5000 + Math.random() * 4000,
+		start_bird
 	
 	
 	
@@ -51,25 +57,31 @@ $(window).on("load",function(){
 	
 	start_bird();
 	
+	$("body").on("mousedown",function(){
+		$("#bullets img:last-child").remove();
+	});
+	
 	// changement d'image et arrêt au clique	
 	$("#bird").on("mousedown",function() {
+	if ($("#bullets img").length > 0){
 		$("#bird").attr("src","img/dead.png");
 		$("#bird").stop();
 		
 
 		$("#bird").animate(
-		{
-			top: hauteur_fenetre,
-		},
-		1000,
-		function(){
-			$("#bird").attr("src","img/bird.gif");
-			$("#bird").css("left","-60px");
-			start_bird();
-		}
+			{
+				top: hauteur_fenetre,
+			},
+			1000,
+			start_bird
+			
 		);
 		
+			
+		score += 10;
+		$("#score").html("score : " + score);
 		
+		}
 	});
 	
 });
