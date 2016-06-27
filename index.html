@@ -16,43 +16,62 @@
 </div>
 <div id="score">0000</div>
 <script>
-// affichage aléatoire de l'arbre
+var largeur_fenetre = $(window).width();
+var hauteur_fenetre = $(window).height();
+
+function start_bird(){
+	
+	// depart de l'oiseau
+	
+	var hauteur_depart = Math.random() * (hauteur_fenetre - $("#bird").height());
+	$("#bird").css("top",hauteur_depart + "px");
+
+	// point d'arrivée
+	var hauteur_arrivee = Math.random() * (hauteur_fenetre - $("#bird").height());
+	
+	// lancement animation
+	$("#bird").animate({
+			left: largeur_fenetre,
+			top: hauteur_arrivee
+		},
+		3000 + Math.random() * 4000
+	
+	
+	
+	);
+	
+}
 $(window).on("load",function(){
-	var largeur_fenetre = $(window).width();
+	// apparition aleatoire de l'arbre
 	var largeur_tree = $("#tree").width();
 	console.log(largeur_tree);
 	var a = Math.random() * (largeur_fenetre - largeur_tree);
-
+	
 	$("#tree").css("left",a + "px");
 	
-	// depart de l'oiseau
-	var hauteur_fenetre = $(window).height();
-	var hauteur_bird = $("#bird").height();
-	var hauteur_depart = Math.random() * (hauteur_fenetre - hauteur_bird);
-
-
-	$("#bird").css("top",hauteur_depart + "px");
-
-	// vitesse et trajectoire de l'oiseau
-	var hauteur_arrivee = Math.random() * (hauteur_fenetre - hauteur_bird);
-
-	$("#bird").animate({
-			left: largeur_fenetre,
-			top: hauteur_arrivee,
-		},
-		3000 + Math.random() * 1000);
-	// changement d'image et arrêt au clique	
+	start_bird();
 	
-	$("#bird").on("click",function() {
+	// changement d'image et arrêt au clique	
+	$("#bird").on("mousedown",function() {
 		$("#bird").attr("src","img/dead.png");
 		$("#bird").stop();
 		
 
-		$("#bird").animate({
+		$("#bird").animate(
+		{
 			top: hauteur_fenetre,
 		},
-		1000);
+		1000,
+		function(){
+			$("#bird").attr("src","img/bird.gif");
+			$("#bird").css("left","-60px");
+			start_bird();
+		}
+		);
+		
+		
 	});
+	
 });
 
 
