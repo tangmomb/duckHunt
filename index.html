@@ -24,25 +24,27 @@ $(window).on("load",function(){
 	var a = Math.random() * (largeur_fenetre - largeur_tree);
 
 	$("#tree").css("left",a + "px");
+	
+	// depart de l'oiseau
+	var hauteur_fenetre = $(window).height();
+	var largeur_bird = $("#bird").width();
+	var hauteur_depart = Math.random()*(hauteur_fenetre - largeur_bird)
+
+
+	$("#bird").css("top",hauteur_depart + "px");
+
+	// vitesse et trajectoire de l'oiseau
+	var hauteur_arrivee = Math.random()*1000
+	var temps_deplacement = Math.random()*5000
+
+	$("#bird").animate({
+			left: largeur_fenetre,
+			top: hauteur_arrivee,
+		},
+			temps_deplacement);
+
 });
 
-// depart de l'oiseau
-var hauteur_fenetre = $(window).height();
-var largeur_bird = $("#bird").width();
-var hauteur_depart = Math.random()*(hauteur_fenetre - )
-
-
-$("#bird").css("top",hauteur_depart + "px");
-
-// vitesse et trajectoire de l'oiseau
-var largeur_fenetre = $(window).width();
-var deplacement_hauteur = Math.random()*1000
-var deplacement_vitesse = Math.random()*5000
-
-$("#bird").animate({
-left: largeur_fenetre,
-top: deplacement_hauteur,
-},deplacement_vitesse);
 
 
 
